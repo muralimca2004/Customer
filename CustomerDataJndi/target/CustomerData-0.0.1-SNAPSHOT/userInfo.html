@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="resources/css/navstyle.css">
+ <style type="text/css">                       
+        
+        .block2{
+        	display: inline-block;
+        	border: 1px solid blue;
+        }
+                 
+        #body {
+        	#background-color: #33beff;        	
+		}
+		
+		
+    </style>
+<meta charset="ISO-8859-1">
+<title>Register New Customer</title>
+</head>
+<body id="body">
+<ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Accounts</a></li>
+        <li>
+            <a href="#">Funds Transfer &#9662;</a>            
+            <ul class="dropdown">
+                <li><a href="#">Laptops</a></li>
+                <li><a href="#">Monitors</a></li>            
+                <li><a href="#">Printers</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Deposits</a></li>
+        <li><a href="#">Foreign Exchange</a></li>
+    </ul>
+<hr/>
+<div id="outerdiv">
+	<div class="usrRegFormHeader">Sign up to create your account</div>
+	<div class="usrRegForm">
+	<form action="./processUsrData">
+		
+		<label for="title" class="required">Title:</label>
+		
+		<input type="radio" name="title" class="text_" value="Mr">
+		<label for="male" class="text_">Mr</label>
+  		<input type="radio" name="title" class="text_" value="Mrs">
+  		<label for="Mrs" class="text_">Mrs</label>
+  		<input type="radio" name="title" class="text_" value="Miss">
+		<label for="Miss" class="text_">Miss</label><br/>
+  		  		
+		<label for="ForeName" class="required">ForeName:</label>
+    	<input name="foreName" type="text" class="text_"/><br/>
+    	
+    	<label for="LastName" class="required">LastName:</label>
+    	<input name="lastName" type="text" class="text_"/><br/>
+    	    
+    	<label for="fName" class="required">Father/Husband'sName:</label>
+    	<input type="text" name="fname" class="text_" value=""><br/>
+		
+		<label for="fullname" class="required">Full Name:</label>
+    	<input type="text" name="fullname" class="text_" value=""><br/>
+    	
+    	<label for="email" class="required">Email:</label>
+    	<input type="text" name="email" class="text_" value=""><br/>
+    	
+		<b>Address:</b><br/>
+		<label for="street" class="required">Street:</label>
+    	<input type="text" name="street" id="street"class="text_" value=""/><br/>
+    	<label for="state" class="required">State:</label>
+		<input type="text" name="state" class="text_" value="" size="2"/><br/>
+		<label for="pincode" class="required">Pin code:</label>
+		<input type="text" name="pincode" class="text_" value="" size="6"/> <br/>
+		
+    	<input name="Submit" type="submit" class="btn-submit" value="submit"/>
+	</form>
+	</div>
+	<!-- div class="block2">
+		<section><a href="#">Need help?</a></section><br/>
+		<section><a href="#">Useful Links</a></section><br/>
+		<section><a href="#">Frequently asked questions</a></section><br/>	
+	</div-->
+</div>
+<hr/>
+<div class="footerdiv">
+<section><a href="#">About Us</a></section><section><a href="#">Contact Us</a></section><section><a href="#">CopyWright</a></section>
+
+</div>
+
+</body>
+</html>
