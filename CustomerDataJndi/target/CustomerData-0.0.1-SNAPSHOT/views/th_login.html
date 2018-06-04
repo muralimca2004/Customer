@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Login</title>
+<link rel="stylesheet" type="text/css" href="/resources/css/navstyle.css"></link>
+<style type="text/css">
+	
+</style>
+</head>
+<body>
+<ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Accounts</a></li>
+        <li>
+            <a href="#">Funds Transfer &#9662;</a>            
+            <ul class="dropdown">
+                <li><a href="#">With in the Bank</a></li>
+                <li><a href="#">Partner Bank</a></li>            
+                <li><a href="#">ThirdParty</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Deposits</a></li>
+        <li><a href="#">Foreign Exchange</a></li>
+    </ul>
+<h3>Menu</h3>
+<hr/>
+<p th:text="#{login.header}"></p>
+<div class="loginFormHeader"><b>Log into your account</b><p/></div>
+	<div class="loginForm">	
+		<form action="#" th:action="@{/processUsrLogin}" th:object="${user}" method="post">
+			<label for="Username" class="required" th:text="#{login.username}"> </label>
+	    	<input name="Username" type="text" placeholder="Enter Username" class="text_" th:field="*{uid}"/><br/>
+	    	<p></p>
+	    	<label for="password" class="required">Password:</label>
+	    	<input name="password" type="password" placeholder="Enter Password" class="text_" th:field="*{password}"/><br/>
+	    	<p></p>
+	    	
+	    	<div class="checkbox">
+		      <input type="checkbox" checked="checked"></input> <label>Remember me</label>
+	    	</div>
+	    	<button type="button" value="cancel" class="cancelbtn" onclick="if(confirm('Are you SURE you wish to cancel?')) history.back();">Cancel</button>
+	    	<input name="Submit" type="submit" class="btn-submit" value="submit"/>
+		</form>
+	
+		<div class="login-help">
+	    	<p>Forgot <a href="index.html">password?</a>.</p>	    		     
+	    </div>
+	    Not Registered? <a href='/register'>Create an account</a>.
+	</div>
+
+<br/><br/>
+<hr/>
+<div class="footerdiv">
+	<section><a href="#">About Us</a></section><section><a href="#">Contact Us</a></section><section><a href="#">CopyWright</a></section>
+</div>
+</body>
+</html>

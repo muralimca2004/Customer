@@ -14,10 +14,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -29,7 +27,7 @@ import com.maple.it.core.service.ICustomerService;
 
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 @ComponentScan(basePackages = "com.maple.it.core")
 
 public class CustomerController {
@@ -60,31 +58,6 @@ public class CustomerController {
 		
 		return new ModelAndView("index");
 
-	}
-	
-	/**
-	 * This method will list all existing customers.
-	 * 
-	 * @param model
-	 * 
-	 * @return
-	 */
-	
-	@GetMapping(path = "/list")
-	public ModelAndView retrieveCustomerList(ModelMap model){
-		
-		log.info("Inside controller component.." + new Object() {}.getClass().getEnclosingMethod().getName());
-		List<Customer> customerList = custService.retrieveCustomerList();
-		model.addAttribute("customers", customerList);
-		for (Customer customer : customerList) {
-			
-			log.info(customer.getCust_accnt_no());
-			log.info(customer.getCust_first_name());
-			log.info(customer.getCust_last_name());
-			
-		}
-
-		return new ModelAndView("allcustomers");
 	}
 	
 	/**
@@ -255,52 +228,17 @@ public class CustomerController {
     }
 	
 	/**
-	 * Finds the customer record based on account no
-	 * 
-	 * @param bankAccntNo
-	 * 
-	 * @return
-	 */
-	@GetMapping(path = "/customer/findbyaccntno/{accntNo}")
-	@ResponseBody
-	public Customer findCustomerByBankAccntNo(@PathVariable("accntNo") int bankAccntNo) {
-		
-		log.info("Inside controller method..."+ new Object() {}.getClass().getEnclosingMethod().getName());
-		
-		Customer customer = custService.findCustomerByBankAccntNo(bankAccntNo);
-		return customer;
-	}
-	
-	/**
-	 * Finds the customer record based on passport no
-	 * 
-	 * @param passPortNo
-	 * 
-	 * @return
-	 */	
-	@GetMapping(path = "/customer/{passPortNo}")
-	@ResponseBody
-	public Customer retrieveCustomerByPassportNo(@PathVariable("passPortNo") String passPortNo) {
-		
-		log.info("Inside controller method..."+ new Object() {}.getClass().getEnclosingMethod().getName());
-		
-		Customer customer = custService.retrieveCustomer(passPortNo);
-		log.info(customer.getCust_passport_no());
-		log.info(customer.getCust_accnt_no());
-
-		return customer;
-	}
-	
-	/**
 	 * 
 	 * @param model
 	 * @return
 	 */
 	@GetMapping(path = "/customer/login")
-	public String showCustomerLoginForm() {
+	public String showCustomerLoginForm(Model model) {
 		log.info("Inside controller method..."+ new Object() {}.getClass().getEnclosingMethod().getName());
-		
-		return "login";
+		if(!model.containsAttribute("user")) {
+			model.addAttribute("user", new User());			
+		}
+		return "th_login";
 	}
 	
 	/**
@@ -326,9 +264,9 @@ public class CustomerController {
 		
 		if(!valid) {
 			log.info("Login Failed for the user:" + user.getUid());
-			return "login";
+			return "th_login";
 		}
 		log.info("Login Success for the user:" + user.getUid());
-		return "loginSuccess";
+		return "th_loginSuccess";
 	}
 }

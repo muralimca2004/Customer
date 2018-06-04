@@ -3,6 +3,7 @@ package com.maple.it.core.model;
 public class User {
 	
 	private String uid;
+	
 	private String password;
 	
 	/**

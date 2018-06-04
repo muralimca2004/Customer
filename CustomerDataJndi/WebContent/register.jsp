@@ -34,7 +34,7 @@
 </head>
 <body id="body">
 <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="/mybank">Home</a></li>
         <li><a href="#">Accounts</a></li>
         <li>
             <a href="#">Funds Transfer &#9662;</a>            
@@ -122,6 +122,7 @@
   					
 				</div>
     	<button type="button" onclick="javascript:ajaxPost();">CheckUid</button>
+    	<button type="button" value="cancel" class="cancelbtn" onclick="if(confirm('Are you SURE you wish to cancel?')) history.back();">Cancel</button>
     	<input type="Submit" name="submit" class="btn-submit" value="submit"></input>
 	</form:form>
 	</div>
@@ -285,6 +286,7 @@ $(function () {
 			        } else {
 			            $('input[name="cust_netbanking_id"]').hide();
 			            $('label[name="cust_netbanking_id"]').hide();
+			            $('div[id="postResultDiv"]').hide();
 			            //$('input[name="cust_netbanking_id"]').slideUp("show");
 			        	//$('label[name="cust_netbanking_id"]').slideUp("show");
 			        }

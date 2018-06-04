@@ -6,8 +6,8 @@
 <meta charset="ISO-8859-1"></meta>
 <title>CustomerData</title>
 
-<!-- link href="<spring:url value='/resources/css/navstyle.css'/>" type="text/css" rel="stylesheet"> </link-->
-<link rel="stylesheet" type="text/css" href="resources/css/navstyle.css"></link>
+<link href="<spring:url value='/resources/css/navstyle.css'/>" type="text/css" rel="stylesheet"> </link>
+<!-- link rel="stylesheet" type="text/css" href="resources/css/navstyle.css"></link-->
 
 </head>
 <body>
