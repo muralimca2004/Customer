@@ -1,6 +1,6 @@
 com
 CustomerDataJndi/target/
-
+!*.java
 *.class
 *.war
 *.jar
