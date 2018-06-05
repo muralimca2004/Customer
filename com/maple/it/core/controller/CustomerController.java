@@ -20,7 +20,7 @@ import com.maple.it.core.service.ICustomerService;
 
 
 @RestController
-@RequestMapping("/")
+
 @ComponentScan(basePackages = "com.maple.it.core")
 
 public class CustomerController {

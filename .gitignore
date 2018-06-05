@@ -1,5 +1,5 @@
-com/
-CustomerDataJndi/target/*
+com
+CustomerDataJndi/target/
 
 *.class
 *.war
