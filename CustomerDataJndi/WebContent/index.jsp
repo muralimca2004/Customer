@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>	
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta charset="ISO-8859-1"></meta>
 <title>CustomerData</title>
 
-<link href="<spring:url value='/staticresources/css/navstyle.css'/>" type="text/css" rel="stylesheet"> </link>
+<link href='<spring:url value="/staticresources/css/navstyle.css"></spring:url>' type="text/css" rel="stylesheet"/>
+
 <!-- link rel="stylesheet" type="text/css" href="staticresources/css/navstyle.css"></link-->
 
 </head>

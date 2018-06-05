@@ -13,7 +13,7 @@ public class Employee {
 	private String emp_passport_no;
 	
 	public Employee() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**

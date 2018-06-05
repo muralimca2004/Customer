@@ -12,7 +12,7 @@ public class CustomerAccnts {
 	private String cust_accnt_types[];
 	
 	public CustomerAccnts() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
