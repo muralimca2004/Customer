@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>logout</title>
-<link rel="stylesheet" type="text/css" href="navstyle.css"/>
+<link rel="stylesheet" type="text/css" href="staticresources/css/navstyle.css"/>
 <style>
 
 </style>

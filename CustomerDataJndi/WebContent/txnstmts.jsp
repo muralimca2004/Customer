@@ -11,7 +11,7 @@
 <head>
 <meta charset="ISO-8859-1"/>
 <title>CustomerData</title>
-<link rel="stylesheet" type="text/css" href="resources/css/navstyle.css"> </link>
+<link rel="stylesheet" type="text/css" href="staticresources/css/navstyle.css"> </link>
 
 </head>
 <body>

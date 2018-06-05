@@ -94,7 +94,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
     	
     	// CSS and JS resource
-    	registry.addResourceHandler("/resources/**").addResourceLocations("/resources/").setCachePeriod(31556926);
+    	registry.addResourceHandler("/staticresources/**").addResourceLocations("/staticresources/").setCachePeriod(31556926);
     
     }
     

@@ -2,10 +2,10 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>		
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link rel="stylesheet" type="text/css" href="resources/css/navstyle.css"></link>
+<link rel="stylesheet" type="text/css" href="staticresources/css/navstyle.css"></link>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
-<script type="text/javascript" src="resources/js/postrequest.js"></script>
+<script type="text/javascript" src="staticresources/js/postrequest.js"></script>
  	<style type="text/css">                       
         
         .block2{
