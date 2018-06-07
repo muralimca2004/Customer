@@ -15,8 +15,6 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.apache.log4j.Logger;
-
 /**
  * @author murali
  *
@@ -25,16 +23,13 @@ import org.apache.log4j.Logger;
 @Table(name="netbanking")
 public class NetBanking implements Serializable{
 	
-	private Logger log = Logger.getLogger(NetBanking.class);
-	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	public NetBanking() {
-		super();
-		log.info("Inside NetBanking()");
+		super();		
 	}
 	
 	/**
@@ -44,8 +39,7 @@ public class NetBanking implements Serializable{
 		this();
 		this.customer = customer;
 		this.cust_netbanking_passwd = cust_netbanking_passwd;
-		this.cust_netbanking_pin = cust_netbanking_pin;
-		log.info("Inside NetBanking(Customer customer)");
+		this.cust_netbanking_pin = cust_netbanking_pin;		
 	}
 	
 	
