@@ -124,7 +124,7 @@ public class CustomerController {
 		if(bindingResult.hasErrors()) {
 			  redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.customerForm", bindingResult);
 		      redirectAttributes.addFlashAttribute("customerForm", customer);
-			return "redirect:/register";			
+		      return "register";			
 		}
 		
 		customer.setCust_accnt_type("SAVINGS");
@@ -138,7 +138,7 @@ public class CustomerController {
 		String status = custService.registerNewUserForAccntOpen(customer);
 		model.addAttribute("status", status);
 		
-		return "status";
+		return "redirect:status";
 		
     }
 	

@@ -40,8 +40,8 @@ public class LoginController {
 	@GetMapping(path = "/customer/login")
 	public String showCustomerLoginForm(Model model) {
 		log.info("Inside controller method..."+ new Object() {}.getClass().getEnclosingMethod().getName());
-		if(!model.containsAttribute("user")) {
-			model.addAttribute("user", new LoginForm());			
+		if(!model.containsAttribute("loginForm")) {
+			model.addAttribute("loginForm", new LoginForm());			
 		}
 		return "th_login";
 	}
@@ -55,7 +55,7 @@ public class LoginController {
 	 * 
 	 * @return	returns to the loginSuccess page
 	 */
-	@PostMapping(path = "/processUsrLogin")
+	@PostMapping(path = "/customer/login")
 	public String validateUserLogin(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
 		
 		log.info("Inside controller method..."+ new Object() {}.getClass().getEnclosingMethod().getName());
@@ -64,15 +64,16 @@ public class LoginController {
 		if(bindingResult.hasErrors()) {
 			  redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.loginForm", bindingResult);
 		      redirectAttributes.addFlashAttribute("loginForm", loginForm);
-			return "redirect:/customer/login";			
+		      return "th_login";		      
 		}
 		
 		if(!custService.authenticate(
 				loginForm.getUid(), loginForm.getPassword())) {
-			log.info("Login Failed for the user:" + loginForm.getUid());
+			log.info("Login Failed for the user:" + loginForm.getUid());			
 			return "th_login";
 		}
 		log.info("Login Success for the user:" + loginForm.getUid());
-		return "th_loginSuccess";
+		return "redirect:th_loginSuccess";
+		
 	}
 }

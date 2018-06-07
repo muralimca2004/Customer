@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1"></meta>
 <title>CustomerData</title>
 
-<link rel="stylesheet" type="text/css" href="staticresources/css/navstyle.css"></link>
+<link rel="stylesheet" type="text/css" href="./staticresources/css/navstyle.css"></link>
 </head>
 <body>
 <ul>
