@@ -112,7 +112,7 @@ public class PinEncryptionUtil {
 				
 				e.printStackTrace();
 			}
-	  		 log.debug("Hashing of the digit:" + values[index] +"  - - -  "+ "is : " + tempHash);
+	  		 //log.debug("Hashing of the digit:" + values[index] +"  - - -  "+ "is : " + tempHash);
 	  		 finalHash += tempHash;	  		
 	  	  }
 	  	  

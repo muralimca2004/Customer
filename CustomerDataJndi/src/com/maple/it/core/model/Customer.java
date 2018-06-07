@@ -37,9 +37,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name="customer")
 public class Customer {
 	
-	public static Customer newInstance(Customer customer, String cust_netbanking_passwd, String cust_netbanking_pin) {
+	public static Customer newInstance(Customer customer, String id, String cust_netbanking_passwd, String cust_netbanking_pin) {
 		
-		customer.netbanking = new NetBanking(customer, cust_netbanking_passwd, cust_netbanking_pin);
+		customer.netbanking = new NetBanking(customer, id, cust_netbanking_passwd, cust_netbanking_pin);
 		return customer;
 	}
 	
@@ -399,19 +399,19 @@ public class Customer {
 		this.cust_enable_netbanking = cust_enable_netbanking;
 	}
 
-	/*	*//**
+	/**
 	 * @return the netbanking
-	 *//*
+	 */
 	public NetBanking getNetbanking() {
 		return netbanking;
 	}
 
-	*//**
+	/**
 	 * @param netbanking the netbanking to set
-	 *//*
+	 */
 	public void setNetbanking(NetBanking netbanking) {
 		this.netbanking = netbanking;
-	}*/
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

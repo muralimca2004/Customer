@@ -35,9 +35,10 @@ public class NetBanking implements Serializable{
 	/**
 	 *  constructor
 	 */
-	public NetBanking( Customer customer, String cust_netbanking_passwd, String cust_netbanking_pin) {
+	public NetBanking( Customer customer, String cust_netbanking_id, String cust_netbanking_passwd, String cust_netbanking_pin) {
 		this();
 		this.customer = customer;
+		this.cust_netbanking_id = cust_netbanking_id;
 		this.cust_netbanking_passwd = cust_netbanking_passwd;
 		this.cust_netbanking_pin = cust_netbanking_pin;		
 	}
@@ -100,7 +101,7 @@ public class NetBanking implements Serializable{
 		this.cust_netbanking_pin = cust_netbanking_pin;
 	}
 	
-	/*	*//**
+/*	*//**
 	 * @return the customer
 	 *//*
 	public Customer getCustomer() {

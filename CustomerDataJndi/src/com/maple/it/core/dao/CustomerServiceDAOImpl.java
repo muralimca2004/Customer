@@ -70,14 +70,13 @@ public class CustomerServiceDAOImpl implements ICustomerServiceDAO {
 				String passwd = GenerateRandomPassword.generatePassword(8);
 				String pin = GenerateRandomPin.genRandomPin(6);
 				
-				//NetBanking nb = new NetBanking();
-				//nb.setCust_netbanking_id(customer.getCust_netbanking_id());
-				//nb.setCust_netbanking_passwd(passwd);
-				//nb.setCust_netbanking_pin(pin);
-				//nb.setCustomer(customer);
-				//customer.setNetbanking(nb);
-				
-				em.persist(Customer.newInstance(customer, passwd, pin));
+				/*NetBanking nb = new NetBanking();
+				nb.setCust_netbanking_id(customer.getCust_netbanking_id());
+				nb.setCust_netbanking_passwd(passwd);
+				nb.setCust_netbanking_pin(pin);
+				nb.setCustomer(customer);
+				customer.setNetbanking(nb);*/
+				em.persist(Customer.newInstance(customer, customer.getCust_netbanking_id(), passwd, pin));
 				//em.persist(customer);
 				em.flush();
 				em.getTransaction().commit();
