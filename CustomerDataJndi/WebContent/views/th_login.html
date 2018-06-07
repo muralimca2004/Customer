@@ -30,10 +30,13 @@
 	<div class="loginForm">	
 		<form action="#" th:action="@{/processUsrLogin}" th:object="${user}" method="post">
 			<label for="Username" class="required" th:text="#{login.username}"> </label>
-	    	<input name="Username" type="text" placeholder="Enter Username" class="text_" th:field="*{uid}"/><br/>
+	    	<input name="Username" type="text" placeholder="Enter Username" class="text_" th:field="*{uid}"/>
+	    	<div th:if="${#fields.hasErrors('uid')}" th:errors="*{uid}">Incorrect Uid</div>
+	    	<br/>
 	    	<p></p>
 	    	<label for="password" class="required">Password:</label>
 	    	<input name="password" type="password" placeholder="Enter Password" class="text_" th:field="*{password}"/><br/>
+	    	<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Incorrect Password</div>
 	    	<p></p>
 	    	
 	    	<div class="checkbox">

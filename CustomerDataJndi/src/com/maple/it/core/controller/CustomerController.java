@@ -22,7 +22,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.maple.it.core.model.Customer;
 import com.maple.it.core.model.CustomerAccnts;
 import com.maple.it.core.model.Transaction;
-import com.maple.it.core.model.User;
 import com.maple.it.core.service.ICustomerService;
 
 
@@ -227,46 +226,5 @@ public class CustomerController {
 	
     }
 	
-	/**
-	 * 
-	 * @param model
-	 * @return
-	 */
-	@GetMapping(path = "/customer/login")
-	public String showCustomerLoginForm(Model model) {
-		log.info("Inside controller method..."+ new Object() {}.getClass().getEnclosingMethod().getName());
-		if(!model.containsAttribute("user")) {
-			model.addAttribute("user", new User());			
-		}
-		return "th_login";
-	}
 	
-	/**
-	 * Validates login credentials for the user
-	 * 
-	 * @param user
-	 * @param bindingResult
-	 * @param model
-	 * 
-	 * @return	returns to the loginSuccess page
-	 */
-	@PostMapping(path = "/processUsrLogin")
-	public String validateUserLogin(@Valid @ModelAttribute User user, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
-		
-		log.info("Inside controller method..."+ new Object() {}.getClass().getEnclosingMethod().getName());
-		/*// Redirect to form page if detected errors
-				if(bindingResult.hasErrors()) {
-					  redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.user", bindingResult);
-				      redirectAttributes.addFlashAttribute("User", user);
-					return "redirect:/login";			
-				}*/
-		boolean valid = custService.validateUserCredentails(user.getUid(), user.getPassword());
-		
-		if(!valid) {
-			log.info("Login Failed for the user:" + user.getUid());
-			return "th_login";
-		}
-		log.info("Login Success for the user:" + user.getUid());
-		return "th_loginSuccess";
-	}
 }

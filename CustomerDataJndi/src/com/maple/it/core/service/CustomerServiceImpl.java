@@ -124,10 +124,10 @@ public class CustomerServiceImpl implements ICustomerService{
 	}
 
 	@Override
-	public boolean validateUserCredentails(String uid, String password) {
+	public boolean authenticate(String uid, String password) {
 		log.info("Inside service component.." + new Object() {}.getClass().getEnclosingMethod().getName());
 		
-		return custSvcDAO.validateUserCredentails(uid, password);
+		return custSvcDAO.authenticate(uid, password);
 	}
 
 	

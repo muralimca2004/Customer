@@ -64,19 +64,21 @@ public class CustomerServiceDAOImpl implements ICustomerServiceDAO {
 			if(customer.isCust_enable_netbanking()) {
 				em.getTransaction().begin();
 				//https://www.thoughts-on-java.org/persist-save-merge-saveorupdate-whats-difference-one-use/
+				//https://vard-lokkur.blogspot.com/2014/05/onetoone-with-shared-primary-key.html
 				
 				//generate Password and Pin
 				String passwd = GenerateRandomPassword.generatePassword(8);
 				String pin = GenerateRandomPin.genRandomPin(6);
 				
-				NetBanking nb = new NetBanking();
-				nb.setCust_netbanking_id(customer.getCust_netbanking_id());
-				nb.setCust_netbanking_passwd(passwd);
-				nb.setCust_netbanking_pin(pin);
-				nb.setCustomer(customer);
-				customer.setNetbanking(nb);
+				//NetBanking nb = new NetBanking();
+				//nb.setCust_netbanking_id(customer.getCust_netbanking_id());
+				//nb.setCust_netbanking_passwd(passwd);
+				//nb.setCust_netbanking_pin(pin);
+				//nb.setCustomer(customer);
+				//customer.setNetbanking(nb);
 				
-				em.persist(customer);
+				em.persist(Customer.newInstance(customer, passwd, pin));
+				//em.persist(customer);
 				em.flush();
 				em.getTransaction().commit();
 			}
@@ -218,7 +220,7 @@ public class CustomerServiceDAOImpl implements ICustomerServiceDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean validateUserCredentails(String uid, String password) {
+	public boolean authenticate(String uid, String password) {
 		log.info("Inside.. " + new Object() {}.getClass().getEnclosingMethod().getName());
 		try {
 			List<NetBanking> list = getEntityManager().createQuery(

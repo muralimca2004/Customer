@@ -36,7 +36,17 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="customer")
 public class Customer {
-
+	
+	public static Customer newInstance(Customer customer, String cust_netbanking_passwd, String cust_netbanking_pin) {
+		
+		customer.netbanking = new NetBanking(customer, cust_netbanking_passwd, cust_netbanking_pin);
+		return customer;
+	}
+	
+	public Customer(){
+		super();
+	}
+	
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "cust_accnt_no", unique = true, updatable = false, nullable = false)
@@ -56,6 +66,7 @@ public class Customer {
 	private boolean cust_enable_netbanking = true; //checked it
 
 	private String cust_accnt_type;
+	
 	@NotEmpty(message="LastName can not left blank")
 	@Pattern(regexp = "[a-z-A-Z]*", message = "LastName has invalid characters")
 	private String cust_last_name;
@@ -388,19 +399,19 @@ public class Customer {
 		this.cust_enable_netbanking = cust_enable_netbanking;
 	}
 
-	/**
+	/*	*//**
 	 * @return the netbanking
-	 */
+	 *//*
 	public NetBanking getNetbanking() {
 		return netbanking;
 	}
 
-	/**
+	*//**
 	 * @param netbanking the netbanking to set
-	 */
+	 *//*
 	public void setNetbanking(NetBanking netbanking) {
 		this.netbanking = netbanking;
-	}
+	}*/
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

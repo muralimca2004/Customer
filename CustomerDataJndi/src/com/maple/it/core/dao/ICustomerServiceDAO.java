@@ -39,6 +39,6 @@ public interface ICustomerServiceDAO {//extends CrudRepository<Customer, Long>{
 	
 	public List<String> retrieveBranchList();
 
-	public boolean validateUserCredentails(String uid, String password);
+	public boolean authenticate(String uid, String password);
 
 }
